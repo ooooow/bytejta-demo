@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: eureka-server
+
+server:
+  port: 9999
+  context-path: /
+
+eureka:
+  server:
+    enable-self-preservation: false # 自我保护
+  client:
+    register-with-eureka: false #是否将自己注册为服务
+    fetch-registry: false #由于注册中心的职责就是维护服务实例，并不需要去检索服务，所以这里也设置为false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka
+  instance:
+    prefer-ip-address: true
+
+info:
+  name: 注册中心
